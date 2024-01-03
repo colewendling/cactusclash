@@ -1,0 +1,37 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
+const Navbar: React.FC = () => {
+  return (
+    <nav className="w-full bg-gradient-to-b from-slate-800 to-primary text-white h-[130px] flex items-center shadow-xl shadow-black/60">
+      <div className="max-w-7xl mx-auto flex justify-between w-full p-8 items-center">
+        {/* Left Side - Logo and Title */}
+        <div className="flex items-center justify-center gap-6">
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="/logos/logo.png"
+              alt="Logo"
+              width={100}
+              height={40}
+              className="object-contain"
+              priority
+            />
+          </Link>
+          <h2 className="text-white text-3xl font-bold">Cactus Clash</h2>
+        </div>
+
+        {/* Right Side - Developer Link */}
+        <Link
+          href="https://wendling.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white px-4 py-2 rounded-md  border-[3px] border-white h-[50px] flex items-center font-semibold text-lg hover:text-blue-50 hover:border-blue-500 hover:bg-blue-500/20"
+        >
+          Developer
+        </Link>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
