@@ -96,7 +96,6 @@ export function updateCoins(worldState) {
       sprite("coin-icon"),
       scale(0.26),
       pos(20, 250),
-      // color("#964B00"),
       z(2),
       "coin-icon",
     ]);
