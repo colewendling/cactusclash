@@ -1,15 +1,15 @@
 export function updateBackground(worldState) {
   if (worldState.isDay) {
-    destroyAll("night");
-    destroyAll("stars");
+    destroyAll('night');
+    destroyAll('stars');
 
     add([
-      sprite("night"),
+      sprite('night'),
       pos(0, 0),
       z(-10),
       fadeIn(60),
       opacity(0.6),
-      "night",
+      'night',
     ]);
 
     const starPositions = [
@@ -20,26 +20,26 @@ export function updateBackground(worldState) {
 
     for (const starPosition of starPositions) {
       add([
-        sprite("stars", { anim: "twinkle" }),
+        sprite('stars', { anim: 'twinkle' }),
         pos(starPosition.x, starPosition.y),
         z(-11),
         fadeIn(60),
         opacity(1),
-        "stars",
+        'stars',
       ]);
     }
   } else {
-    destroyAll("day");
-    add([sprite("day"), pos(0, 0), z(-10), fadeIn(60), opacity(1), "day"]);
+    destroyAll('day');
+    add([sprite('day'), pos(0, 0), z(-10), fadeIn(60), opacity(1), 'day']);
   }
   worldState.isDay = !worldState.isDay;
 }
 
 export function updateSun(worldState) {
   if (worldState.isSun) {
-    destroyAll("moon");
+    destroyAll('moon');
     add([
-      sprite("sun"),
+      sprite('sun'),
       scale(0.5),
       pos(900, -150),
       opacity(1),
@@ -47,15 +47,15 @@ export function updateSun(worldState) {
       z(-5),
     ]);
   } else {
-    destroyAll("sun");
+    destroyAll('sun');
     add([
-      sprite("moon"),
+      sprite('moon'),
       scale(0.5),
       pos(900, -150),
       opacity(1),
       move(DOWN, 15),
       z(-5),
-      "moon",
+      'moon',
     ]);
   }
   worldState.isSun = !worldState.isSun;
@@ -64,15 +64,15 @@ export function updateSun(worldState) {
 export function spawnGrass(worldState) {
   if (!worldState.isPaused) {
     add([
-      sprite("grass"),
+      sprite('grass'),
       pos(width() + 100, 660),
       scale(0.5),
       area(),
       move(LEFT, worldState.grassSpeed * worldState.speedMultiplier),
       z(2),
       opacity(1),
-      "grass",
-      "env",
+      'grass',
+      'env',
     ]);
   }
 
@@ -86,15 +86,15 @@ export function spawnGrass(worldState) {
 
     for (const position of positions) {
       add([
-        sprite("grass"),
+        sprite('grass'),
         pos(position.x, position.y),
         scale(0.5),
         area(),
         move(LEFT, worldState.grassSpeed),
         z(2),
         opacity(1),
-        "grass",
-        "env",
+        'grass',
+        'env',
       ]);
     }
   }
@@ -111,16 +111,16 @@ export function spawnClouds(worldState) {
 
   if (!worldState.isPaused) {
     add([
-      sprite("clouds"),
+      sprite('clouds'),
       pos(-600, rand(50, 200)),
       scale(cloudScaleX, cloudScaleY),
       opacity(rand(0.2, 0.4)),
-      color("#ffffff"),
+      color('#ffffff'),
       area(),
       move(RIGHT, worldState.cloudSpeed * worldState.speedMultiplier),
       z(-1),
-      "cloud",
-      "env",
+      'cloud',
+      'env',
     ]);
   }
 
@@ -131,8 +131,8 @@ export function spawnClouds(worldState) {
 
 export function spawnTrees(worldState) {
   const randomNum = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
-  const largeTrees = ["cactus-large-1", "cactus-large-2"];
-  const smallTrees = ["cactus-small-1"];
+  const largeTrees = ['cactus-large-1', 'cactus-large-2'];
+  const smallTrees = ['cactus-small-1'];
 
   const shouldFlip = Math.random() < 0.5 ? 1 : -1;
 
@@ -165,8 +165,8 @@ export function spawnTrees(worldState) {
       area(),
       move(LEFT, worldState.treeSpeed * worldState.speedMultiplier),
       z(-1),
-      "tree",
-      "env",
+      'tree',
+      'env',
     ]);
   }
 
@@ -176,19 +176,19 @@ export function spawnTrees(worldState) {
 }
 
 export function initBackground(worldState) {
-  setBackground(Color.fromHex("#c3cdb7"));
+  setBackground(Color.fromHex('#c3cdb7'));
 
   const foreground = add([
-    sprite("foreground"),
+    sprite('foreground'),
     pos(0, 0),
     z(-3),
     opacity(1),
-    "foreground",
+    'foreground',
   ]);
 
-  setBackground(Color.fromHex("#123549"));
+  setBackground(Color.fromHex('#123549'));
 
-  add([sprite("day"), pos(0, 0), z(-12), opacity(1), "day"]);
+  add([sprite('day'), pos(0, 0), z(-12), opacity(1), 'day']);
 
   spawnGrass(worldState);
   spawnClouds(worldState);
@@ -211,9 +211,9 @@ export function initBarriers(worldState) {
     area(width()),
     body({ isStatic: true }),
     z(1),
-    color("#914236"),
+    color('#914236'),
     opacity(0),
-    "ground",
+    'ground',
   ]);
 
   const leftBoundary = add([
@@ -223,8 +223,8 @@ export function initBarriers(worldState) {
     area(),
     body({ isStatic: true }),
     z(1),
-    color("#914236"),
-    "boundary",
+    color('#914236'),
+    'boundary',
   ]);
 
   const rightBoundary = add([
@@ -234,8 +234,8 @@ export function initBarriers(worldState) {
     area(width()),
     body({ isStatic: true }),
     z(1),
-    color("#914236"),
-    "boundary",
+    color('#914236'),
+    'boundary',
   ]);
 
   const arrowBoundary = add([
@@ -246,8 +246,8 @@ export function initBarriers(worldState) {
     opacity(0),
     body({ isStatic: true }),
     z(1),
-    color("#914236"),
-    "boundary",
+    color('#914236'),
+    'boundary',
   ]);
 
   const grassBoundary = add([
@@ -257,22 +257,22 @@ export function initBarriers(worldState) {
     area(),
     body({ isStatic: true }),
     z(1),
-    color("#914236"),
-    "boundary",
+    color('#914236'),
+    'boundary',
   ]);
 
   const leftBoundaryObjects = [
-    "enemy",
-    "ally",
-    "bird",
-    "cart",
-    "tree",
-    "ropeman",
-    "coin",
+    'enemy',
+    'ally',
+    'bird',
+    'cart',
+    'tree',
+    'ropeman',
+    'coin',
   ];
-  const rightBoundaryObjects = ["cloud", "arrow"];
-  const arrowBoundaryObjects = ["arrow"];
-  const grassBoundaryObjects = ["grass"];
+  const rightBoundaryObjects = ['cloud', 'arrow'];
+  const arrowBoundaryObjects = ['arrow'];
+  const grassBoundaryObjects = ['grass'];
 
   setCollisions(leftBoundary, leftBoundaryObjects);
   setCollisions(rightBoundary, rightBoundaryObjects);

@@ -1,7 +1,7 @@
 export function pauseGame(worldState, player) {
   worldState.isPaused = !worldState.isPaused;
-  const allNPCS = get("npc");
-  const allENV = get("env");
+  const allNPCS = get('npc');
+  const allENV = get('env');
 
   if (worldState.isPaused) {
     player.paused = true;
@@ -12,26 +12,26 @@ export function pauseGame(worldState, player) {
       npc.paused = true;
     });
 
-    const pauseOverlay = add([
+    add([
       rect(width(), height()),
       opacity(0.3),
       pos(0, 0),
       area(),
       z(10),
-      color("#d3d3d3"),
-      "pauseOverlay",
+      color('#d3d3d3'),
+      'pauseOverlay',
     ]);
 
-    const pauseText = add([
-      text("Game Paused"),
+    add([
+      text('Game Paused'),
       pos(640, 300),
-      anchor("center"),
-      color("#422808"),
-      "pauseText",
+      anchor('center'),
+      color('#422808'),
+      'pauseText',
     ]);
   } else {
-    destroyAll("pauseOverlay");
-    destroyAll("pauseText");
+    destroyAll('pauseOverlay');
+    destroyAll('pauseText');
     player.paused = false;
     allENV.forEach((env) => {
       env.paused = false;
