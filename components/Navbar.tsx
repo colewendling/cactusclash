@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="w-full bg-gradient-to-b from-slate-800 to-primary text-white h-[130px] flex items-center shadow-xl shadow-black/60">
+    <nav className="w-full bg-gradient-to-b from-slate-800 to-primary text-white h-[80px] flex items-center shadow-xl shadow-black/60">
       <div className="max-w-7xl mx-auto flex justify-between w-full p-8 items-center">
         {/* Left Side - Logo and Title */}
         <div className="flex items-center justify-center gap-6">
@@ -11,13 +11,13 @@ const Navbar: React.FC = () => {
             <Image
               src="/logos/logo.png"
               alt="Logo"
-              width={100}
+              width={50}
               height={40}
               className="object-contain"
               priority
             />
           </Link>
-          <h2 className="text-white text-3xl font-bold">Cactus Clash</h2>
+          <h2 className="text-white text-xl font-bold">Cactus Clash</h2>
         </div>
 
         {/* Right Side - Developer Link */}
@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
           href="https://wendling.io"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white px-4 py-2 rounded-md  border-[3px] border-white h-[50px] flex items-center font-semibold text-lg hover:text-blue-50 hover:border-blue-500 hover:bg-blue-500/20"
+          className="text-white px-4 py-2 rounded-md  border-[2px] border-white h-[40px] flex items-center font-semibold text-md hover:text-blue-50 hover:border-blue-500 hover:bg-blue-500/20"
         >
           Developer
         </Link>
