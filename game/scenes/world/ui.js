@@ -1,3 +1,5 @@
+// game/scenes/world/ui.js
+
 export function updateScore(worldState) {
   destroyAll('score-ui');
   add([

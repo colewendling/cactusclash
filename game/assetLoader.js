@@ -1,3 +1,5 @@
+// game/assetLoader.js
+
 export function loadAssets(k) {
   const { loadSound, loadSprite, loadSpriteAtlas } = k;
 

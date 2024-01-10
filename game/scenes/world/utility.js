@@ -1,9 +1,12 @@
-export function pauseGame(worldState, player) {
+// game/scenes/world/utility.js
+
+export function pauseGame(worldState, player, music) {
   worldState.isPaused = !worldState.isPaused;
   const allNPCS = get('npc');
   const allENV = get('env');
 
   if (worldState.isPaused) {
+    // Pause game entities
     player.paused = true;
     allENV.forEach((env) => {
       env.paused = true;
@@ -12,6 +15,10 @@ export function pauseGame(worldState, player) {
       npc.paused = true;
     });
 
+    // Pause music
+    music.paused = true;
+
+    // Add pause overlay and text
     add([
       rect(width(), height()),
       opacity(0.3),
@@ -30,6 +37,7 @@ export function pauseGame(worldState, player) {
       'pauseText',
     ]);
   } else {
+    // Resume game entities
     destroyAll('pauseOverlay');
     destroyAll('pauseText');
     player.paused = false;
@@ -39,5 +47,8 @@ export function pauseGame(worldState, player) {
     allNPCS.forEach((npc) => {
       npc.paused = false;
     });
+
+    // Resume music
+    music.paused = false;
   }
 }

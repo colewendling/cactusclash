@@ -1,3 +1,5 @@
+// game/scenes/world/actions.js
+
 export function shoot(worldState) {
   const arrow = add([
     sprite('arrow'),
@@ -23,7 +25,7 @@ export function shoot(worldState) {
   });
 }
 
-export function useRope(worldState, player) {
+export function rope(worldState, player) {
   if (worldState.isUsingRope === false) {
     destroyAll('rope');
     destroyAll('platform');

@@ -1,3 +1,5 @@
+// game/scenes/lose/lose.js
+
 export function setLose(k, worldState) {
   const {
     add,

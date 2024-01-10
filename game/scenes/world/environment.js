@@ -1,3 +1,5 @@
+// game/scenes/world/environment.js
+
 export function updateBackground(worldState) {
   if (worldState.isDay) {
     destroyAll('night');
