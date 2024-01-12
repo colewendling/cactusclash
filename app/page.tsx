@@ -22,7 +22,7 @@ export default function Home() {
       const interval = setInterval(() => {
         const state = GameActions.getWorldState?.();
         setRopeDisabled(!state?.hasRope);
-        setRopeTimer(state.ropeTimer); // Update ropeTimer
+        setRopeTimer(state?.ropeTimer ?? 0); // Update ropeTimer
       }, 100);
 
       // Cleanup on unmount

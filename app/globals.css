@@ -2,20 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #515258;
-}
+@layer base {
+  /* :root {
+    --inter: 'Inter', sans-serif;
+  } */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #515258;
-    --foreground: #ffffff;
+  html {
+    @apply bg-slate-700; /* Global background for the entire site */
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply overscroll-y-none;
+  }
 }
