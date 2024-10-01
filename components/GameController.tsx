@@ -1,4 +1,5 @@
 // components/GameController.tsx
+
 'use client';
 
 import { useState } from 'react';

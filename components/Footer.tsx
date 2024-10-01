@@ -1,6 +1,8 @@
-import React from 'react';
-import Image from 'next/image';
-import { Mail, Github, Linkedin, FileText, Globe } from 'lucide-react';
+// components/Footer.tsx
+
+import React from "react";
+import Image from "next/image";
+import { Mail, Github, Linkedin, FileText, Globe } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (

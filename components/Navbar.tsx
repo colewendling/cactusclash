@@ -1,5 +1,7 @@
-import Image from 'next/image';
-import Link from 'next/link';
+// components/Navbar.tsx
+
+import Image from "next/image";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   return (
