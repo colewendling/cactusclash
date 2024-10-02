@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
               <Globe className="size-5" />
             </a>
             <a
-              href="https://wendling.io/Resume"
+              href="https://wendling.io/resume"
               className="flex items-center justify-center bg-white p-1 rounded-full hover:bg-blue-500 text-slate-600 hover:text-white shadow-md shadow-black/50 w-8 h-8"
             >
               <FileText className="size-5" />
