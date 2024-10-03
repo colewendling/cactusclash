@@ -12,13 +12,9 @@ let k = null;
 export function startGame(canvas) {
   // Initialize kaboom only once
   if (!k) {
-    // Calculate dynamic dimensions
-    const actualWidth = canvas?.clientWidth || 1280;
-    const actualHeight = Math.floor((actualWidth * 9) / 16);
-
     k = kaboom({
-      width: actualWidth,
-      height: actualHeight,
+      width: 1280,
+      height: 720,
       canvas: canvas, // attach to the provided canvas
       background: [0, 0, 0],
     });
