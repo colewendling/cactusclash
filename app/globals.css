@@ -17,3 +17,9 @@
     @apply overscroll-y-none;
   }
 }
+
+@layer components {
+  .dev-1 {
+    border: 1px solid cyan;
+  }
+}
