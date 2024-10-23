@@ -31,7 +31,7 @@ export default function GameController({
   };
 
   return (
-    <div className="flex gap-4 mt-4 justify-center">
+    <div className="flex gap-4 mt-10 justify-center">
       {/* Pause/Play Button */}
       <button
         className="text-md font-semibold border-4 p-2 rounded-lg text-blue-500 hover:text-white bg-blue-100 hover:bg-blue-500 border-blue-800 flex gap-2 justify-center items-center h-[40px]"
@@ -52,8 +52,8 @@ export default function GameController({
       <button
         className={`text-md font-semibold border-4 p-4 rounded-full h-[40px] flex items-center justify-center ${
           isPaused
-            ? 'text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed'
-            : 'text-red-500 bg-red-100 hover:text-white hover:bg-red-500 border-red-800'
+            ? "text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed"
+            : "text-red-500 bg-red-100 hover:text-white hover:bg-red-500 border-red-800"
         }`}
         onClick={() => GameActions.jump?.()}
         disabled={isPaused}
@@ -65,25 +65,25 @@ export default function GameController({
       <div
         className={`relative w-[40px] h-[40px] rounded-full overflow-hidden border-4 ${
           ropeDisabled || isPaused
-            ? 'bg-gray-200 border-gray-400 cursor-not-allowed'
-            : 'bg-red-500 border-green-800'
+            ? "bg-gray-200 border-gray-400 cursor-not-allowed"
+            : "bg-red-500 border-green-800"
         }`}
         onClick={() => {
           if (!ropeDisabled || isPaused) {
             GameActions.rope?.();
           }
         }}
-        style={{ cursor: ropeDisabled || isPaused ? 'not-allowed' : 'pointer' }}
+        style={{ cursor: ropeDisabled || isPaused ? "not-allowed" : "pointer" }}
       >
         {/* Green overlay for the timer */}
         <div
           // className="absolute left-0 bottom-0 w-full bg-green-500"
           className={`absolute left-0 bottom-0 w-full ${
-            isPaused ? 'bg-gray-500' : 'bg-green-500'
+            isPaused ? "bg-gray-500" : "bg-green-500"
           }`}
           style={{
             height: `${Math.max(0, (ropeTimer / 3) * 40)}px`, // Dynamically set height based on ropeTimer
-            transition: 'height 0.1s ease',
+            transition: "height 0.1s ease",
           }}
         />
         {/* Rope Icon */}
@@ -93,7 +93,7 @@ export default function GameController({
           width={20}
           height={20}
           className={`absolute inset-0 m-auto z-10 ${
-            ropeDisabled || isPaused ? 'opacity-50' : ''
+            ropeDisabled || isPaused ? "opacity-50" : ""
           }`}
         />
       </div>
@@ -102,8 +102,8 @@ export default function GameController({
       <button
         className={`text-xl font-semibold border-4 p-4 rounded-full h-[40px] flex items-center justify-center ${
           isPaused
-            ? 'text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed'
-            : 'text-orange-500 bg-orange-100 hover:text-white hover:bg-orange-500 border-orange-800'
+            ? "text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed"
+            : "text-orange-500 bg-orange-100 hover:text-white hover:bg-orange-500 border-orange-800"
         }`}
         onClick={() => GameActions.shoot?.()}
         disabled={isPaused}
@@ -113,7 +113,7 @@ export default function GameController({
           alt="Shoot Icon"
           width={15}
           height={15}
-          className={`${isPaused ? 'opacity-50' : ''}`}
+          className={`${isPaused ? "opacity-50" : ""}`}
         />
       </button>
 
