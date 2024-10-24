@@ -65,27 +65,29 @@ export default function Home() {
   }, [gameStarted]);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full ">
+    <div className="flex flex-col items-center justify-center w-full px-2 py-10">
       {!gameStarted ? (
         <>
-          <div className="relative w-full max-w-screen-md mx-auto aspect-video mb-6">
-            <Image
-              src="/placeholder/home.png"
-              alt="Home Screen Placeholder"
-              fill
-              className="object-cover rounded-xl shadow-xl shadow-black/30"
-            />
-          </div>
+          <ScaledCanvas>
+            <div style={{ position: "relative", width: "1280px", height: "720px" }}>
+              <Image
+                src="/placeholder/home.png"
+                alt="Home Screen Placeholder"
+                fill
+                className="object-cover rounded-xl shadow-xl shadow-black/30"
+              />
+            </div>
+          </ScaledCanvas>
 
           <button
-            className="text-lg text-white font-semibold border-4 py-2 px-4 rounded-2xl hover:text-orange-500 hover:bg-orange-500/20 hover:border-orange-800"
+            className="text-lg text-white font-semibold border-4 py-2 px-4 rounded-2xl mt-10 hover:text-orange-500 hover:bg-orange-500/20 hover:border-orange-800"
             onClick={() => setGameStarted(true)}
           >
             Play
           </button>
         </>
       ) : (
-        <>
+        <div className="w-full">
           <ScaledCanvas>
             <canvas
               ref={canvasRef}
@@ -95,7 +97,7 @@ export default function Home() {
             />
           </ScaledCanvas>
           <GameController ropeDisabled={ropeDisabled} ropeTimer={ropeTimer} />
-        </>
+        </div>
       )}
     </div>
   );
