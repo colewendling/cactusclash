@@ -3,6 +3,8 @@
 export interface WorldState {
   hasRope: boolean;
   ropeTimer: number;
+  arrows: number;
+  isGameOver: boolean;
 }
 
 export interface GameActionsType {

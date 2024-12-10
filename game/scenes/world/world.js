@@ -68,6 +68,7 @@ export function setWorld(k, initialState) {
     devMode: false,
     isPaused: false,
     isMuted: false,
+    isGameOver: false,
     ...initialState, // in case you pass any overrides
   };
 
@@ -383,6 +384,7 @@ export function setWorld(k, initialState) {
         worldState.lives--;
       } else {
         music.paused = true;
+        worldState.isGameOver = true
         go('lose', worldState);
       }
     }
