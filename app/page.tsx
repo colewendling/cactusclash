@@ -12,6 +12,8 @@ export default function Home() {
   const [gameStarted, setGameStarted] = useState(false);
   const [ropeDisabled, setRopeDisabled] = useState(false);
   const [ropeTimer, setRopeTimer] = useState(0);
+  const [arrowCount, setArrowCount] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
     if (gameStarted) {
@@ -24,6 +26,8 @@ export default function Home() {
         const state = GameActions.getWorldState?.();
         setRopeDisabled(!state?.hasRope);
         setRopeTimer(state?.ropeTimer ?? 0); // Update ropeTimer
+        setArrowCount(state?.arrows ?? 0);
+        setIsGameOver(state?.isGameOver ?? false);
       }, 100);
 
       // Cleanup on unmount
@@ -96,7 +100,12 @@ export default function Home() {
               className="rounded-xl shadow-xl shadow-black/30"
             />
           </ScaledCanvas>
-          <GameController ropeDisabled={ropeDisabled} ropeTimer={ropeTimer} />
+          <GameController
+            ropeDisabled={ropeDisabled}
+            ropeTimer={ropeTimer}
+            arrowCount={arrowCount}
+            isGameOver={isGameOver}
+          />
         </div>
       )}
     </div>
