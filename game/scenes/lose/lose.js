@@ -40,7 +40,15 @@ export function setLose(k, worldState) {
     pos(640, 420),
     anchor('center'),
     color('#422808'),
-    'finalScore',
+    'finalKillCount',
+  ]);
+
+  const playAgain = add([
+    text(`Click to Play Again!`),
+    pos(640, 480),
+    anchor("center"),
+    color("#422808"),
+    "playAgain",
   ]);
 
   onClick(() => go('world'));
