@@ -1,34 +1,25 @@
 // components/Footer.tsx
 
+"use client";
 import React from "react";
-import Image from "next/image";
-import { Mail, Github, Linkedin, FileText, Globe } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGlobe,
+  faFileLines,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-b from-slate-800 to-primary text-white px-10 py-20">
       <div className="flex flex-col md:flex-row justify-evenly items-center md:items-start gap-12 py-4 md:gap-6">
-        {/* Logo and Site Name */}
-        <div className="flex items-center justify-center">
-          <Image
-            src="/logos/logo.png"
-            alt="Texas Waterway Logo"
-            width={80}
-            height={80}
-            className="object-contain"
-            priority
-          />
-        </div>
-
         {/* Contact Info */}
         <div className="flex flex-col gap-2 items-center md:items-start">
           <h3 className="text-lg font-bold mb-3">Developer</h3>
           <span>cole wendling</span>
-          <a
-            href="mailto:cole@wendling.io"
-            className="flex items-center gap-2 text-sm hover:underline"
-          >
-            <Mail className="w-5 h-5" />
+          <a href="mailto:cole@wendling.io" className="text-sm hover:underline">
+            <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
             cole@wendling.io
           </a>
           <a
@@ -42,49 +33,70 @@ const Footer: React.FC = () => {
         {/* Links */}
         <div className="flex flex-col gap-2 items-center md:items-start">
           <h3 className="text-lg font-bold mb-3">Links</h3>
-          <div className="flex flex-row gap-3 lg:gap-6">
+          <div className="flex flex-row gap-8">
             <a
               href="https://github.com/colewendling"
-              className="flex items-center justify-center bg-white p-1 rounded-full hover:bg-blue-500 text-slate-600 hover:text-white shadow-md shadow-black/50 w-8 h-8"
+              className="group relative hover:text-slate-300"
             >
-              <Github className="size-5" />
+              <FontAwesomeIcon
+                icon={faGithub}
+                className="text-white text-2xl"
+              />
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden md:group-hover:block px-2 py-1 text-xs bg-black bg-opacity-70 text-white rounded">
+                GitHub
+              </span>
             </a>
             <a
               href="https://www.linkedin.com/in/colewendling/"
-              className="flex items-center justify-center bg-white p-1 rounded-full hover:bg-blue-500 text-slate-600 hover:text-white shadow-md shadow-black/50 w-8 h-8"
+              className="group relative hover:text-slate-300"
             >
-              <Linkedin className="size-5" />
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                className="text-white text-2xl"
+              />
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden md:group-hover:block px-2 py-1 text-xs bg-black bg-opacity-70 text-white rounded">
+                LinkedIn
+              </span>
             </a>
             <a
               href="https://wendling.io/"
-              className="flex items-center justify-center bg-white p-1 rounded-full hover:bg-blue-500 text-slate-600 hover:text-white shadow-md shadow-black/50 w-8 h-8"
+              className="group relative hover:text-slate-300"
             >
-              <Globe className="size-5" />
+              <FontAwesomeIcon icon={faGlobe} className="text-white text-2xl" />
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden md:group-hover:block px-2 py-1 text-xs bg-black bg-opacity-70 text-white rounded">
+                Website
+              </span>
             </a>
             <a
               href="https://wendling.io/resume"
-              className="flex items-center justify-center bg-white p-1 rounded-full hover:bg-blue-500 text-slate-600 hover:text-white shadow-md shadow-black/50 w-8 h-8"
+              className="group relative hover:text-slate-300"
             >
-              <FileText className="size-5" />
+              <FontAwesomeIcon
+                icon={faFileLines}
+                className="text-white text-2xl"
+              />
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden md:group-hover:block px-2 py-1 text-xs bg-black bg-opacity-70 text-white rounded">
+                Resume
+              </span>
             </a>
           </div>
         </div>
 
-        {/* Newsletter */}
+        {/* Connect */}
         <div className="flex flex-col gap-2 items-center md:items-start">
           <h3 className="text-lg font-bold mb-3">Connect</h3>
           <a
             href="mailto:cole@wendling.io"
             className="flex items-center gap-2 text-sm hover:underline"
           >
-            <Mail className="w-5 h-5" />
+            <FontAwesomeIcon icon={faEnvelope} className="text-white text-lg" />
             Contact Me
           </a>
         </div>
       </div>
 
       <div className="text-center text-sm mt-10">
-        Cactus Clash &copy; 2024 - All Rights Reserved
+        Cole Wendling &copy; 2025 - All Rights Reserved
       </div>
     </footer>
   );
