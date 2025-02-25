@@ -6,6 +6,7 @@ import Image from "next/image";
 import GameController from "../components/GameController";
 import ScaledCanvas from "../components/ScaledCanvas";
 import { GameActions } from "../game/main.js";
+import HowToPlay from "@/components/HowToPlay";
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -108,6 +109,7 @@ export default function Home() {
           />
         </div>
       )}
+      <HowToPlay />
     </div>
   );
 }
