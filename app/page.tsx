@@ -74,7 +74,9 @@ export default function Home() {
       {!gameStarted ? (
         <>
           <ScaledCanvas>
-            <div style={{ position: "relative", width: "1280px", height: "720px" }}>
+            <div
+              style={{ position: "relative", width: "1280px", height: "720px" }}
+            >
               <Image
                 src="/placeholder/home.png"
                 alt="Home Screen Placeholder"
@@ -85,7 +87,7 @@ export default function Home() {
           </ScaledCanvas>
 
           <button
-            className="text-lg text-white font-semibold border-4 py-2 px-4 rounded-2xl mt-10 hover:text-orange-500 hover:bg-orange-500/20 hover:border-orange-800"
+            className="text-lg text-white font-semibold border-4 py-2 px-4 rounded-2xl mt-10 hover:text-orange-500 hover:bg-orange-500/20 hover:border-orange-800 font-optician uppercase"
             onClick={() => setGameStarted(true)}
           >
             Play

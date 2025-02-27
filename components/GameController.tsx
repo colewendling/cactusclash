@@ -64,7 +64,7 @@ export default function GameController({
 
       {/* Jump */}
       <button
-        className={`text-md font-semibold border-4 p-4 rounded-full h-[40px] flex items-center justify-center ${
+        className={`text-md font-semibold border-4 p-4 rounded-full h-[40px] flex items-center justify-center font-optician uppercase ${
           isPaused || isGameOver
             ? "text-gray-400 bg-gray-200 border-gray-400 cursor-not-allowed"
             : "text-red-500 bg-red-100 hover:text-white hover:bg-red-500 border-red-800"
