@@ -16,15 +16,20 @@ const Footer: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-evenly items-center md:items-start gap-12 py-4 md:gap-6">
         {/* Contact Info */}
         <div className="flex flex-col gap-2 items-center md:items-start">
-          <h3 className="text-lg font-bold mb-3">Developer</h3>
-          <span>cole wendling</span>
-          <a href="mailto:cole@wendling.io" className="text-sm hover:underline">
+          <h3 className="text-lg font-bold mb-3 font-optician uppercase">
+            Developer
+          </h3>
+          <span className="font-favoritMono">cole wendling</span>
+          <a
+            href="mailto:cole@wendling.io"
+            className="text-sm hover:underline font-favoritMono"
+          >
             <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
             cole@wendling.io
           </a>
           <a
             href="tel:+19403935061"
-            className="flex items-center gap-2 text-sm hover:underline"
+            className="flex items-center gap-2 text-sm hover:underline font-favoritMono"
           >
             +1-940-393-5061
           </a>
@@ -32,7 +37,9 @@ const Footer: React.FC = () => {
 
         {/* Links */}
         <div className="flex flex-col gap-2 items-center md:items-start">
-          <h3 className="text-lg font-bold mb-3">Links</h3>
+          <h3 className="text-lg font-bold mb-3 font-optician uppercase">
+            Links
+          </h3>
           <div className="flex flex-row gap-8">
             <a
               href="https://github.com/colewendling"
@@ -84,18 +91,23 @@ const Footer: React.FC = () => {
 
         {/* Connect */}
         <div className="flex flex-col gap-2 items-center md:items-start">
-          <h3 className="text-lg font-bold mb-3">Connect</h3>
+          <h3 className="text-lg font-bold mb-3 font-optician uppercase">
+            Connect
+          </h3>
           <a
             href="mailto:cole@wendling.io"
             className="flex items-center gap-2 text-sm hover:underline"
           >
-            <FontAwesomeIcon icon={faEnvelope} className="text-white text-lg" />
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              className="text-white text-lg font-favoritMono"
+            />
             Contact Me
           </a>
         </div>
       </div>
 
-      <div className="text-center text-sm mt-10">
+      <div className="text-center text-sm mt-10 font-favoritMono">
         Cole Wendling &copy; 2025 - All Rights Reserved
       </div>
     </footer>
