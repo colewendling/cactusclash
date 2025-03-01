@@ -5,6 +5,8 @@ export interface WorldState {
   ropeTimer: number;
   arrows: number;
   isGameOver: boolean;
+  isPaused: boolean;
+  isMuted: boolean;
 }
 
 export interface GameActionsType {

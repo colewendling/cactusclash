@@ -15,6 +15,8 @@ export default function Home() {
   const [ropeTimer, setRopeTimer] = useState(0);
   const [arrowCount, setArrowCount] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
     if (gameStarted) {
@@ -29,6 +31,8 @@ export default function Home() {
         setRopeTimer(state?.ropeTimer ?? 0); // Update ropeTimer
         setArrowCount(state?.arrows ?? 0);
         setIsGameOver(state?.isGameOver ?? false);
+        setIsPaused(state?.isPaused ?? false);
+        setIsMuted(state?.isMuted ?? false);
       }, 100);
 
       // Cleanup on unmount
@@ -108,6 +112,8 @@ export default function Home() {
             ropeTimer={ropeTimer}
             arrowCount={arrowCount}
             isGameOver={isGameOver}
+            isPaused={isPaused}
+            isMuted={isMuted}
           />
         </div>
       )}
