@@ -1,9 +1,9 @@
 // game/scenes/world/world.js
 
-import * as UI from './ui.js';
-import * as ENV from './environment.js';
-import * as UTIL from './utility.js';
-import * as ACTION from './actions.js';
+import * as UI from "./ui.js";
+import * as ENV from "./environment.js";
+import * as UTIL from "./utility.js";
+import * as ACTION from "./actions.js";
 
 export function setWorld(k, initialState) {
   // We can destructure the main Kaboom methods we'll use
@@ -73,22 +73,27 @@ export function setWorld(k, initialState) {
   };
 
   // Play background music
-  const music = play('main', {
+  const music = play("main", {
     volume: 0.5,
     loop: true,
   });
 
-  music.play();
+  // Only start playback if not muted initially
+  if (!worldState.isMuted) {
+    music.play();
+  } else {
+    music.paused = true;
+  }
 
   // Create the player
   const player = add([
-    sprite('raider', { anim: 'run' }),
+    sprite("raider", { anim: "run" }),
     pos(100, 50),
     area(),
     body(),
     health(worldState.lives),
     z(1),
-    'player',
+    "player",
   ]);
 
   setGravity(worldState.gravity);
@@ -101,7 +106,7 @@ export function setWorld(k, initialState) {
     // music.paused = worldState.pauseMusic;
     if (player.isGrounded()) {
       player.jump(worldState.jumpPower);
-      play('jump');
+      play("jump");
     }
   }
 
@@ -128,8 +133,8 @@ export function setWorld(k, initialState) {
     worldState.isMuted = !worldState.isMuted;
     if (worldState.isMuted) {
       music.paused = true;
-    } else {
-      music.paused = false;
+    } else if (!worldState.isPaused) {
+      music.play();
     }
   }
 
@@ -145,111 +150,111 @@ export function setWorld(k, initialState) {
   function checkshieldLives() {
     if (worldState.shieldLives > 0) {
       worldState.isShield = true;
-      destroyAll('shield');
+      destroyAll("shield");
       add([
-        sprite('shield'),
+        sprite("shield"),
         scale(0.23),
         pos(worldState.playerPos.x - 10, worldState.playerPos.y - 10),
         area(),
         z(0),
         opacity(0.6),
-        color('#ff007F'),
-        'shield',
+        color("#ff007F"),
+        "shield",
       ]);
     } else {
-      destroyAll('shield');
+      destroyAll("shield");
       worldState.isShield = false;
     }
   }
 
   const npcTypes = {
     raider: {
-      sprite: 'raider',
-      anim: { anim: 'run' },
+      sprite: "raider",
+      anim: { anim: "run" },
       posX: width() + 100,
       posY: height() - 50,
       scaleX: -worldState.raiderScale,
       scaleY: worldState.raiderScale,
-      color: '#ff2200',
+      color: "#ff2200",
       speed: rand(300, 600) * worldState.speedMultiplier,
       frequency: rand(4, 8),
-      tag: 'enemy',
-      secondaryTag: 'npc',
+      tag: "enemy",
+      secondaryTag: "npc",
     },
     dark: {
-      sprite: 'raider',
-      anim: { anim: 'run' },
+      sprite: "raider",
+      anim: { anim: "run" },
       posX: width() + 100,
       posY: height() - 50,
       scaleX: -worldState.raiderScale,
       scaleY: worldState.raiderScale,
-      color: '#000000',
+      color: "#000000",
       speed: rand(900, 1500) * worldState.speedMultiplier,
       frequency: rand(8, 16),
-      tag: 'enemy',
-      secondaryTag: 'npc',
+      tag: "enemy",
+      secondaryTag: "npc",
     },
     ally: {
-      sprite: 'raider',
-      anim: { anim: 'run' },
+      sprite: "raider",
+      anim: { anim: "run" },
       posX: width() + 100,
       posY: height() - 50,
       scaleX: -worldState.raiderScale,
       scaleY: worldState.raiderScale,
-      color: '#2CE71E',
+      color: "#2CE71E",
       speed: rand(400, 800) * worldState.speedMultiplier,
       frequency: rand(8, 16),
-      tag: 'ally',
-      secondaryTag: 'npc',
+      tag: "ally",
+      secondaryTag: "npc",
     },
     bird: {
-      sprite: 'bird',
-      anim: { anim: 'fly' },
+      sprite: "bird",
+      anim: { anim: "fly" },
       posX: width() + 400,
       posY: height() - 250,
       scaleX: 0.4,
       scaleY: 0.4,
-      color: '#ff007F',
+      color: "#ff007F",
       speed: rand(100, 200) * worldState.speedMultiplier,
       frequency: rand(16, 32),
-      tag: 'bird',
-      secondaryTag: 'npc',
+      tag: "bird",
+      secondaryTag: "npc",
     },
     cart: {
-      sprite: 'cart',
-      anim: { anim: 'travel' },
+      sprite: "cart",
+      anim: { anim: "travel" },
       posX: width() + 100,
       posY: height() - 48,
       scaleX: 1.1,
       scaleY: 0.9,
       speed: rand(100, 200) * worldState.speedMultiplier,
       frequency: rand(30, 60),
-      tag: 'cart',
-      secondaryTag: 'npc',
+      tag: "cart",
+      secondaryTag: "npc",
     },
     ropeMan: {
-      sprite: 'ropeMan',
-      anim: { anim: 'run' },
+      sprite: "ropeMan",
+      anim: { anim: "run" },
       posX: width() + 100,
       posY: height() - 50,
       scaleX: -worldState.raiderScale,
       scaleY: worldState.raiderScale,
       speed: rand(300, 600) * worldState.speedMultiplier,
       frequency: rand(30, 60),
-      tag: 'ropeman',
-      secondaryTag: 'npc',
+      tag: "ropeman",
+      secondaryTag: "npc",
     },
     coin: {
-      sprite: 'coin',
-      anim: { anim: 'spin' },
+      sprite: "coin",
+      anim: { anim: "spin" },
       posX: width() + 100,
       posY: height() - 60,
       scaleX: 0.2,
       scaleY: 0.2,
       speed: rand(200, 300) * worldState.speedMultiplier,
       frequency: rand(2, 6),
-      tag: 'coin',
-      secondaryTag: 'npc',
+      tag: "coin",
+      secondaryTag: "npc",
     },
   };
 
@@ -263,8 +268,8 @@ export function setWorld(k, initialState) {
         area(),
         pos(npcType.posX, npcType.posY),
         scale(npcType.scaleX, npcType.scaleY),
-        anchor('botleft'),
-        color(npcType.color || 'ffffff'),
+        anchor("botleft"),
+        color(npcType.color || "ffffff"),
         move(LEFT, npcType.speed * worldState.speedMultiplier),
         z(1),
         npcType.tag,
@@ -284,27 +289,27 @@ export function setWorld(k, initialState) {
     for (let i = 0; i < rand(3, max); i++) {
       if (randomNum > 1) {
         add([
-          sprite('raider', { anim: 'run' }),
+          sprite("raider", { anim: "run" }),
           area(),
           pos(width() + 100, height() - 50),
           scale(-worldState.raiderScale, worldState.raiderScale),
-          anchor('botleft'),
+          anchor("botleft"),
           move(LEFT, rand(900, 1500) * worldState.speedMultiplier),
           z(1),
-          color('#000000'),
-          'enemy',
+          color("#000000"),
+          "enemy",
         ]);
       } else {
         add([
-          sprite('raider', { anim: 'run' }),
+          sprite("raider", { anim: "run" }),
           area(),
           pos(width() + 100, height() - 50),
           scale(-worldState.raiderScale, worldState.raiderScale),
-          anchor('botleft'),
+          anchor("botleft"),
           move(LEFT, rand(300, 600) * worldState.speedMultiplier),
           z(1),
-          color('#ff2200'),
-          'enemy',
+          color("#ff2200"),
+          "enemy",
         ]);
       }
     }
@@ -315,10 +320,10 @@ export function setWorld(k, initialState) {
   //----------------------------------------------------------------------
   function updatePlayerSprite() {
     if (worldState.arrows > 0 && worldState.isShooterSprite === false) {
-      player.use(sprite('raiderShoot', { anim: 'run' }));
+      player.use(sprite("raiderShoot", { anim: "run" }));
       worldState.isShooterSprite = true;
     } else if (worldState.arrows === 0 && worldState.isShooterSprite === true) {
-      player.use(sprite('raider', { anim: 'run' }));
+      player.use(sprite("raider", { anim: "run" }));
       worldState.isShooterSprite = false;
     }
   }
@@ -373,47 +378,47 @@ export function setWorld(k, initialState) {
     }
   }
 
-  player.onCollide('enemy', (enemy) => {
+  player.onCollide("enemy", (enemy) => {
     destroy(enemy);
     if (worldState.shieldLives > 0) {
-      play('sparkle');
+      play("sparkle");
       worldState.shieldLives--;
     } else {
-      play('collision');
+      play("collision");
       if (worldState.lives > 0) {
         worldState.lives--;
       } else {
         music.paused = true;
-        worldState.isGameOver = true
-        go('lose', worldState);
+        worldState.isGameOver = true;
+        go("lose", worldState);
       }
     }
   });
 
-  player.onCollide('ally', (ally) => {
+  player.onCollide("ally", (ally) => {
     destroy(ally);
-    play('heal');
+    play("heal");
     if (worldState.lives < worldState.maxLives) {
       worldState.lives++;
       UI.updateHealth(worldState);
     } else {
-      play('error');
+      play("error");
     }
   });
 
-  player.onCollide('bird', (bird) => {
+  player.onCollide("bird", (bird) => {
     destroy(bird);
     if (worldState.shieldLives < worldState.maxshieldLives) {
-      play('bird');
+      play("bird");
       worldState.shieldLives++;
     } else {
-      play('error');
+      play("error");
     }
   });
 
-  player.onCollide('cart', (cart) => {
+  player.onCollide("cart", (cart) => {
     destroy(cart);
-    play('cart');
+    play("cart");
     const arrowsToAdd = worldState.coins;
     if (worldState.arrows < worldState.maxArrows) {
       const arrowsAfterCollision = worldState.arrows + arrowsToAdd;
@@ -426,9 +431,9 @@ export function setWorld(k, initialState) {
     }
   });
 
-  player.onCollide('ropeman', (ropeMan) => {
+  player.onCollide("ropeman", (ropeMan) => {
     destroy(ropeMan);
-    const yeehaw = play('yeehaw', { volume: 0.5 });
+    const yeehaw = play("yeehaw", { volume: 0.5 });
     yeehaw.speed = 1.5;
     worldState.hasRope = true;
     if (worldState.ropeTimer < 3) {
@@ -436,9 +441,9 @@ export function setWorld(k, initialState) {
     }
   });
 
-  player.onCollide('coin', (coin) => {
+  player.onCollide("coin", (coin) => {
     destroy(coin);
-    play('pop');
+    play("pop");
     worldState.coins++;
   });
 

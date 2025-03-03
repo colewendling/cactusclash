@@ -2,7 +2,6 @@
 
 "use client";
 
-import { useState } from "react";
 import { GameActions } from "../game/main";
 import { Play, Pause, VolumeOff, Volume2 } from "lucide-react";
 import Image from "next/image.js";
@@ -13,6 +12,8 @@ interface GameControllerProps {
   ropeTimer: number;
   arrowCount: number;
   isGameOver: boolean;
+  isPaused: boolean;
+  isMuted: boolean;
 }
 
 export default function GameController({
@@ -20,18 +21,15 @@ export default function GameController({
   ropeTimer,
   arrowCount,
   isGameOver,
+  isPaused,
+  isMuted,
 }: GameControllerProps) {
-  const [isPaused, setIsPaused] = useState(false);
-  const [isMusicMuted, setIsMusicMuted] = useState(false);
-
   const handlePausePlay = () => {
     GameActions.pause?.(); // Trigger the pause/play action
-    setIsPaused(!isPaused); // Toggle button text
   };
 
   const handleToggleMusic = () => {
     GameActions.mute?.(); // Trigger the music toggle action
-    setIsMusicMuted(!isMusicMuted); // Toggle button state
   };
 
   const disabledShoot = isPaused || arrowCount < 1;
@@ -140,7 +138,7 @@ export default function GameController({
         className="text-xl font-semibold border-4 p-2 rounded-lg text-gray-500 hover:text-white bg-gray-100 hover:bg-gray-500 border-gray-800 flex gap-2 justify-center items-center h-[40px]"
         onClick={handleToggleMusic}
       >
-        {isMusicMuted ? (
+        {isMuted ? (
           <>
             <VolumeOff className="size-4" />
             {/* Music */}
