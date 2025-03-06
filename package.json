@@ -1,7 +1,16 @@
 {
   "name": "cactusclash",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "A fast-paced cowboy-themed mini jumper game.",
+  "author": "Cole Wendling <cole@wendling.io>",
+  "contributors": [
+    {
+      "name": "Cole Wendling",
+      "email": "cole@wendling.io",
+      "url": "https://wendling.io"
+    }
+  ],
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
