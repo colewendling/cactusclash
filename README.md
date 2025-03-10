@@ -17,30 +17,30 @@
 
 ## Table of Contents
 
-- [🚀 Live Demo](#-live-demo)
-- [🎮 Gameplay Features](#-gameplay-features)
-- [🛠️ Tech Stack & Implementation](#️-tech-stack--implementation)
+- [Live Demo](#live-demo)
+- [Gameplay Features](#gameplay-features)
+- [Tech Stack & Implementation](#tech-stack--implementation)
   - [Next.js & React](#nextjs--react)
   - [TypeScript](#typescript)
   - [Tailwind CSS](#tailwind-css)
   - [Kaboom.js Game Engine](#kaboomjs-game-engine)
   - [Additional Libraries](#additional-libraries)
   - [Deployment (Vercel)](#deployment-vercel)
-- [📦 Setup & Development](#-setup--development)
-- [🚚 Deployment](#-deployment)
-- [🎨 Credits](#-credits)
+- [Setup & Development](#setup--development)
+- [Deployment](#deployment)
+- [Credits](#credits)
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-👉 [**Play now at cactusclash.com**](https://cactusclash.com)
+[**Play now at cactusclash.com**](https://cactusclash.com)
 
 No installation required — the game runs directly in your browser on both desktop and mobile.
 
 ---
 
-## 🎮 Gameplay Features
+## Gameplay Features
 
 - **Wave-based raids**: Multiple enemies spawn in "raid" events as the score increases.
 - **Increasing difficulty**: Enemies become faster and spawn more frequently as you progress.
@@ -63,7 +63,7 @@ No installation required — the game runs directly in your browser on both desk
 
 ---
 
-## 🛠️ Tech Stack & Implementation
+## Tech Stack & Implementation
 
 ### Next.js & React
 
@@ -108,7 +108,7 @@ No installation required — the game runs directly in your browser on both desk
 
 ---
 
-## 📦 Setup & Development
+## Setup & Development
 
 1. **Clone the repository**:
    ```bash
@@ -130,7 +130,7 @@ No installation required — the game runs directly in your browser on both desk
 
 ---
 
-## 🚚 Deployment
+## Deployment
 
 - Deployment is handled via [**Vercel**](https://vercel.com), optimized for Next.js.
 - Production build commands:
@@ -143,7 +143,7 @@ No installation required — the game runs directly in your browser on both desk
 
 ---
 
-## 🎨 Credits
+## Credits
 
 All code, design, sprites, and sounds created specifically for this project.
 
@@ -154,4 +154,4 @@ All code, design, sprites, and sounds created specifically for this project.
 
 ---
 
-> ✨ Want a deeper dive? Browse the source code for detailed implementations, animation logic, Kaboom integrations, and UI components.
+> Want a deeper dive? Browse the source code for detailed implementations, animation logic, Kaboom integrations, and UI components.
