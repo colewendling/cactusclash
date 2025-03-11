@@ -111,17 +111,20 @@ No installation required — the game runs directly in your browser on both desk
 ## Setup & Development
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/colewendling/cactusclash.git
    cd cactusclash
    ```
 
 2. **Install dependencies using `pnpm`**:
+
    ```bash
    pnpm install
    ```
 
 3. **Run the development server**:
+
    ```bash
    pnpm run dev
    ```
@@ -133,7 +136,9 @@ No installation required — the game runs directly in your browser on both desk
 ## Deployment
 
 - Deployment is handled via [**Vercel**](https://vercel.com), optimized for Next.js.
-- Production build commands:
+
+  - Production build commands:
+
   ```bash
   pnpm run build
   pnpm start
