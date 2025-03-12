@@ -20,6 +20,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cactusclash.com"),
   title: "Cactus Clash",
   description:
     "A fast-paced cowboy-themed mini jumper game built with JavaScript and the Kaboom library. Swing from ropes, jump over enemies, trade ammo, and join forces with helpful allies—as waves of raiders intensify across this wild west world.",
