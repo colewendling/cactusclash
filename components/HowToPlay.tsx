@@ -201,16 +201,18 @@ const HowToPlay: React.FC = () => {
                   <td className="px-4 py-1 text-center">gives 1 life</td>
                 </tr>
                 <tr className="border border-slate-600 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors duration-150">
-                  <td className="px-4 py-1 text-center pl-[21px]">
-                    <SpriteLooper
-                      path="/sprites/npc/bird.png"
-                      width={300}
-                      height={145}
-                      sliceCount={2}
-                      speed={4}
-                      offset={5}
-                      colorVariant="pink"
-                    />
+                  <td className="px-4 py-1 text-center">
+                    <div className="inline-block transform -scale-x-100 origin-left ml-16">
+                      <SpriteLooper
+                        path="/sprites/npc/bird.png"
+                        width={300}
+                        height={145}
+                        sliceCount={2}
+                        speed={4}
+                        offset={0}
+                        colorVariant="pink"
+                      />
+                    </div>
                   </td>
                   <td className="px-4 py-1 text-center">Bird</td>
                   <td className="px-4 py-1 text-center">gives shield</td>
@@ -231,14 +233,16 @@ const HowToPlay: React.FC = () => {
                 </tr>
                 <tr className="border border-slate-600 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors duration-150">
                   <td className="px-4 py-1 text-center">
-                    <SpriteLooper
-                      path="/sprites/npc/cart.png"
-                      width={600}
-                      height={90}
-                      sliceCount={3}
-                      speed={4}
-                      offset={5}
-                    />
+                    <div className="transform -scale-x-100">
+                      <SpriteLooper
+                        path="/sprites/npc/cart.png"
+                        width={600}
+                        height={90}
+                        sliceCount={3}
+                        speed={4}
+                        offset={5}
+                      />
+                    </div>
                   </td>
                   <td className="px-4 py-1 text-center">Cart</td>
                   <td className="px-4 py-1 text-center">coins to arrows</td>
